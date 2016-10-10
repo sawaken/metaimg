@@ -1,0 +1,8 @@
+require "metaimg/version"
+require "metaimg/directory"
+require "metaimg/tags"
+require "metaimg/thumbnail"
+require "metaimg/track"
+require "metaimg/server"
+require "metaimg/server_config"
+require "metaimg/track_command"

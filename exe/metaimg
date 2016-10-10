@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+
+require 'metaimg'
+Version = Metaimg::VERSION
+
+Metaimg::Server.init(Metaimg::ServerConfig.from_argv(ARGV))
+Metaimg::Server.run!

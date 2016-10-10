@@ -1,0 +1,9 @@
+task :run do
+  sh 'bundle install --path vendor/bundler'
+  sh 'bundle exec metaimg-track add images'
+  sh 'bundle exec metaimg --port=49999 --home=. --root=./images'
+end
+
+task :clean do
+  sh 'rm -rf ./vendor ./.metaimg ./images/.metaimg_track.yml'
+end
