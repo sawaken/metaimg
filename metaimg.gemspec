@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Metaimg::VERSION
   spec.authors       = ["Kensuke Sawada"]
   spec.email         = ["sasasawada@gmail.com"]
-  spec.summary       = %q{The simple image viewer.}
+  spec.summary       = %q{metaimg}
   spec.homepage      = "https://github.com/sawaken/metaimg"
   spec.license       = "MIT"
 
