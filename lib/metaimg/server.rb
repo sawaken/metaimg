@@ -19,8 +19,8 @@ module Metaimg
       set :bind, '0.0.0.0' unless config.only_local
     end
 
-    get '/' do
-      'top page'
+    not_found do
+      'Not found'
     end
 
     # returns
