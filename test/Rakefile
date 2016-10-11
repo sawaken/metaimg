@@ -10,7 +10,7 @@ end
 desc 'initialize'
 task :init do
   sh 'rm -rf ./.metaimg ./images/.metaimg_track.yml'
-  sh 'bundle install --path=vendor/bundler --gemfile=./Gemfile'
+  sh 'bundle install --gemfile=./Gemfile'
   sh 'bundle exec metaimg-track add images'
 end
 
