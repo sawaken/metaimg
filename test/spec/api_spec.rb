@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'airborne'
 
 TAKI_SHA256 = '6af68e72676d57cc508f77d59b5423be04e7fb03a4bb3f75b1bf32401c4bb8cc'

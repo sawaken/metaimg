@@ -16,7 +16,7 @@ end
 
 desc 'run specs'
 task :test do
-  sh 'bundle exec rspec'
+  sh 'bundle exec rspec ./spec/api_spec.rb'
 end
 
 desc 'run fully automated test'
