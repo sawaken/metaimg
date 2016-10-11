@@ -1,9 +1,32 @@
-task :run do
-  sh 'bundle install --path vendor/bundler'
-  sh 'bundle exec metaimg-track add images'
-  sh 'bundle exec metaimg --port=49999 --home=. --root=./images'
+require "rspec/core/rake_task"
+
+SERV_COM = 'bundle exec metaimg --port=49999 --home=./.metaimg --root=./images'
+
+desc 'run server without initialize'
+task :server do
+  sh SERV_COM
 end
 
-task :clean do
-  sh 'rm -rf ./vendor ./.metaimg ./images/.metaimg_track.yml'
+desc 'initialize'
+task :init do
+  sh 'rm -rf ./.metaimg ./images/.metaimg_track.yml'
+  sh 'bundle install --path vendor/bundler'
+  sh 'bundle exec metaimg-track add images'
+end
+
+desc 'run specs'
+task :test do
+  sh 'bundle exec rspec'
+end
+
+desc 'run fully automated test'
+task :default => [:init] do
+  begin
+    pid = spawn(SERV_COM)
+    sleep(2)
+    Rake::Task[:test].invoke
+  ensure
+    Process.kill(:SIGINT, pid)
+    Process.waitpid(pid)
+  end
 end

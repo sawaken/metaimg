@@ -13,7 +13,7 @@ module Metaimg
         dir_path = File.dirname(path)
         YAML.load(File.read(path)).each do |filename, value|
           next if value == IGNORED
-          file_path = dir_path + '/' + filename
+          file_path = File.expand_path(dir_path + '/' + filename)
           @dictionary[value] << file_path
           @reverse_dictionary[file_path] = value
         end

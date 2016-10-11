@@ -1,3 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'metaimg', :path => '../'
+gem 'rest-client'
+gem 'rspec'
+gem 'airborne'

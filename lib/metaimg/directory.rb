@@ -12,9 +12,10 @@ module Metaimg
 
     def dirs(dir_path)
       return [] unless showable_path?(dir_path)
-      Dir.glob("#{@root_dir}/#{dir_path}/**").map do |path|
+      Dir.glob("#{@root_dir}/#{dir_path}/**").flat_map do |path|
         path = File.expand_path(path)
-        DirInTheDir.new(File.mtime(path), File.basename(path))
+        next [] unless File.directory?(path)
+        [DirInTheDir.new(File.mtime(path), File.basename(path))]
       end
     end
 

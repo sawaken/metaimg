@@ -89,7 +89,7 @@ module Metaimg
 
     put '/add/:sha256/:symbol/:point' do
       result = settings.tags.increase_tag(
-        params[:sha256], params[:symbol], params[:point]
+        params[:sha256], params[:symbol], params[:point].to_i
       )
       if result
         status 200
